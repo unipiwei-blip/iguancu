@@ -15,6 +15,11 @@ def write(path, html):
     with open(full, "w", encoding="utf-8") as f:
         f.write(html)
 
+def seo(key):
+    """从统一配置取 (title, description, keywords)，避免各页面重复硬编码。"""
+    t, d, k = SEO[key]
+    return t, d, k
+
 def crumb(*items):
     parts = ['<a href="/">首页</a>']
     for name, href in items:
@@ -132,10 +137,7 @@ def build_index():
 </div></section>
 ''' % (LOC, BRAND, sector_top, sector_bottom, advs, news)
     write("index.html", page(
-        "广东莞促知识产权代理事务所（普通合伙）｜守护创新 成就价值",
-        "广东莞促知识产权代理事务所是莞促集团旗下机构，提供专利申请、商标注册、版权登记、涉外知识产权、维权与科技项目申报等一站式服务。",
-        "知识产权代理,专利申请,商标注册,版权登记,高新技术企业认定,东莞知识产权,莞促知产",
-        "", body, active="index", jsonld=org_jsonld()))
+        *seo("index"), "", body, active="index", jsonld=org_jsonld()))
 
 # ============ 关于莞促 ============
 def build_about():
@@ -167,7 +169,7 @@ def build_about():
     </ul>
   </div>
 </div>'''
-    write("about.html", page("关于莞促｜广东莞促知识产权代理事务所", "了解广东莞促知识产权代理事务所的简介、服务网络与执业承诺。莞促集团旗下关联机构，提供一站式知识产权服务。", "关于莞促,事务所简介,东莞知识产权代理,莞促集团", "about.html", body, active="about", jsonld=web_page_jsonld("关于莞促", "事务所简介与服务理念", "about.html", "AboutPage")))
+    write("about.html", page(*seo("about"), "about.html", body, active="about", jsonld=web_page_jsonld("关于莞促", "事务所简介与服务理念", "about.html", "AboutPage")))
 
 def build_group():
     body = ph("莞促集团", "扎根东莞，与产业共同成长", "GUANCU GROUP") + '''
@@ -194,7 +196,7 @@ def build_group():
     <div style="text-align:center;margin-top:22px"><a class="btn btn--primary" href="https://www.guancu.com/" target="_blank" rel="noopener">访问莞促集团官网 →</a></div>
   </div>
 </div>'''
-    write("group.html", page("莞促集团｜莞促知产", "莞促集团扎根东莞，覆盖企业服务、财税工商、知识产权、数字科技、产业投资与教育文旅六大板块。莞促知产为集团知识产权板块专业承接平台。", "莞促集团,六大业务板块,知识产权与科技申报,莞促知产", "group.html", body, active="about", jsonld=web_page_jsonld("莞促集团", "集团概览与业务板块", "group.html", "AboutPage")))
+    write("group.html", page(*seo("group"), "group.html", body, active="about", jsonld=web_page_jsonld("莞促集团", "集团概览与业务板块", "group.html", "AboutPage")))
 
 def build_culture():
     cult = "".join('''<div class="cult-card"><div class="cc-label">%s</div><div class="cc-main">%s</div></div>''' % p for p in [
@@ -215,7 +217,7 @@ def build_culture():
     <p style="font-size:22px;color:var(--gold-500);font-weight:700">%s</p>
   </div>
 </div>''' % (cult, vals, CULTURE["spirit"])
-    write("culture.html", page("企业文化｜莞促知产", "莞促知产的企业文化：定位、服务宗旨、使命、愿景与价值观，与莞促集团一脉相承，专业、诚信、协同、长期。", "企业文化,服务宗旨,使命愿景,价值观,莞促知产", "culture.html", body, active="about", jsonld=web_page_jsonld("企业文化", "企业文化与价值主张", "culture.html", "AboutPage")))
+    write("culture.html", page(*seo("culture"), "culture.html", body, active="about", jsonld=web_page_jsonld("企业文化", "企业文化与价值主张", "culture.html", "AboutPage")))
 
 def build_team():
     items = [("团队", "专业代理人团队", "覆盖专利、商标、版权等领域，具备扎实的专业能力与实务经验。"),
@@ -242,7 +244,7 @@ def build_team():
     </ul>
   </div>
 </div>''' % cards
-    write("team.html", page("专业团队｜莞促知产", "莞促知产拥有专利、商标、版权、项目申报等领域的资深专业代理人团队，一对一顾问服务，专业分工对口处理。", "专业团队,专利代理人,商标代理人,知识产权顾问", "team.html", body, active="about", jsonld=web_page_jsonld("专业团队", "团队构成与服务方式", "team.html", "AboutPage")))
+    write("team.html", page(*seo("team"), "team.html", body, active="about", jsonld=web_page_jsonld("专业团队", "团队构成与服务方式", "team.html", "AboutPage")))
 
 def build_honors():
     cards = "".join('''<div class="mini-card"><div class="mi mi--2">%s</div><h4>%s</h4><p>专业资质与行业认可</p></div>''' % (h[:2], h) for h in HONORS)
@@ -258,7 +260,7 @@ def build_honors():
     <p>%s。我们将继续以规范执业和诚信服务，为客户创造长期价值。</p>
   </div>
 </div>''' % (cards, PARTNERS_NOTE)
-    write("honors.html", page("荣誉资质｜莞促知产", "莞促知产持有专利代理机构执业许可，为行业协会会员单位，获AAA级信用企业、守合同重信用等多项资质与认可。", "荣誉资质,专利代理机构执业许可,AAA信用企业,守合同重信用", "honors.html", body, active="about", jsonld=web_page_jsonld("荣誉资质", "专业资质与行业认可", "honors.html", "AboutPage")))
+    write("honors.html", page(*seo("honors"), "honors.html", body, active="about", jsonld=web_page_jsonld("荣誉资质", "专业资质与行业认可", "honors.html", "AboutPage")))
 
 # ============ 专业服务总览 ============
 def build_services():
@@ -279,7 +281,7 @@ def build_services():
     <a class="btn btn--gold" href="/contact.html" style="margin-top:10px">立即咨询 →</a>
   </div>
 </div>''' % sectors
-    write("services.html", page("专业服务｜莞促知产", "莞促知产提供专利服务、商标服务、版权服务、涉外知识产权、维权与法律、科技项目申报、知产运营与托管七大板块服务。", "专利服务,商标服务,版权登记,涉外知识产权,维权,科技项目申报,知识产权托管", "services.html", body, active="services", jsonld=ld))
+    write("services.html", page(*seo("services"), "services.html", body, active="services", jsonld=ld))
 
 def build_service_detail(s):
     items = "".join('''<div class="item-card"><h4>%s</h4><p>%s</p></div>''' % p for p in s["items"])
@@ -304,7 +306,8 @@ def build_service_detail(s):
   <div class="sector-grid">%s</div>
 </div>''' % (s["desc"], s["short"]+"。", items, others)
     fn = "service-"+s["id"]+".html"
-    write(fn, page(s["name"]+"｜莞促知产", s["desc"]+"提供"+("、".join(x[0] for x in s["items"]))+"等专业服务。", s["name"]+",知识产权,"+",".join(x[0] for x in s["items"]), fn, body, active="services", jsonld=web_page_jsonld(s["name"], s["desc"], fn, "ServicePage")))
+    st, sd, sk = SERVICE_SEO[s["id"]]
+    write(fn, page(st, sd, sk, fn, body, active="services", jsonld=web_page_jsonld(s["name"], s["desc"], fn, "ServicePage")))
 
 # ============ 服务流程 ============
 def build_process():
@@ -323,7 +326,7 @@ def build_process():
     </ul>
   </div>
 </div>''' % steps
-    write("process.html", page("服务流程｜莞促知产", "莞促知产服务流程：需求沟通、方案梳理、资料准备、服务实施、交付跟进，专业团队全程对接。", "服务流程,专利申请流程,知识产权代理流程", "process.html", body, active="process", jsonld=web_page_jsonld("服务流程", "五步服务流程与服务保障", "process.html")))
+    write("process.html", page(*seo("process"), "process.html", body, active="process", jsonld=web_page_jsonld("服务流程", "五步服务流程与服务保障", "process.html")))
 
 # ============ 新闻资讯 ============
 def news_listing(title, sub, en, items, fn, active, cats=None):
@@ -336,7 +339,8 @@ def news_listing(title, sub, en, items, fn, active, cats=None):
 <div class="container" style="padding-top:36px;padding-bottom:80px">
   <div class="news-grid">%s</div>
 </div>''' % cards
-    write(fn, page(title+"｜莞促知产", sub+"。知识产权政策法规、专业解读与行业动态资讯。", title+",知识产权资讯,专利资讯,莞促知产", fn, body, active=active, jsonld=web_page_jsonld(title, sub, fn, "CollectionPage")))
+    key = fn.replace(".html", "")
+    write(fn, page(*seo(key), fn, body, active=active, jsonld=web_page_jsonld(title, sub, fn, "CollectionPage")))
 
 def build_news():
     # 统一资讯中心：一个栏目发布通知公告、政策速递、事务所动态、知产课堂等文章，带分类筛选与分页
@@ -402,7 +406,7 @@ def build_news():
   render();
 })();
 </script>''' % (tabs, cards)
-    write("news.html", page("新闻资讯｜莞促知产", "莞促知产新闻资讯中心，统一发布通知公告、政策速递、事务所动态与知识产权专业知识解读文章。", "新闻资讯,通知公告,知识产权政策,事务所动态,莞促知产", "news.html", body, active="news", jsonld=web_page_jsonld("新闻资讯", "通知公告、政策与专业知识资讯", "news.html", "CollectionPage")))
+    write("news.html", page(*seo("news"), "news.html", body, active="news", jsonld=web_page_jsonld("新闻资讯", "通知公告、政策与专业知识资讯", "news.html", "CollectionPage")))
 
     news_listing("通知公告", "本所服务通知与重要事项公告", "NOTICE", [n for n in NEWS if n["cat"]=="通知公告"] or NEWS[:2], "notice.html", "news")
     news_listing("知产课堂", "用通俗的方式讲清专业知识", "IP CLASSROOM", [n for n in NEWS if n["cat"]=="知产课堂"] or NEWS[:3], "knowledge.html", "news")
@@ -567,7 +571,7 @@ def build_articles():
     <div style="text-align:center;margin-top:30px"><a class="btn btn--outline" href="/news.html">返回资讯列表 →</a></div>
   </article>
 </div>''' % (n["title"], n["cat"], n["date"], n["cover"], n["title"], bodycls, "".join(paras))
-        write(n["file"], page(n["title"]+"｜莞促知产", n["desc"], n["cat"]+",知识产权,"+n["title"], n["file"], body, active="news", og_type="article", og_image=BASE+"/"+n["cover"], jsonld=web_page_jsonld(n["title"], n["desc"], n["file"], "Article")))
+        write(n["file"], page(n["title"]+"｜莞促知产", n["desc"], n["cat"]+",知识产权,专利商标知识,莞促知产", n["file"], body, active="news", og_type="article", og_image=BASE+"/"+n["cover"], jsonld=web_page_jsonld(n["title"], n["desc"], n["file"], "Article")))
 
 # ============ 成功案例 ============
 def build_cases():
@@ -585,7 +589,7 @@ def build_cases():
   <div class="lead-box">以下案例为服务类型说明，均作匿名化处理，不涉及客户具体名称与敏感信息。实际服务内容以双方委托约定为准。</div>
   <div class="content-block"><h2>服务案例类型</h2><div class="item-list">%s</div></div>
 </div>''' % cards
-    write("cases.html", page("成功案例｜莞促知产", "莞促知产服务案例类型：发明专利布局、高新技术企业认定、商标异议复审、软件著作权登记、海外商标布局与知识产权贯标。", "成功案例,专利布局案例,高企认定案例,商标复审案例", "cases.html", body, active="cases", jsonld=web_page_jsonld("成功案例", "服务案例类型说明", "cases.html", "CollectionPage")))
+    write("cases.html", page(*seo("cases"), "cases.html", body, active="cases", jsonld=web_page_jsonld("成功案例", "服务案例类型说明", "cases.html", "CollectionPage")))
 
 # ============ FAQ ============
 def build_faq():
@@ -598,7 +602,7 @@ def build_faq():
     <a class="btn btn--gold" href="/contact.html" style="margin-top:10px">联系我们 →</a>
   </div>
 </div>''' % items
-    write("faq.html", page("常见问题｜莞促知产", "莞促知产常见问题解答：专利申请保障、专利类型区别、外观专利与版权区别、高企认定条件、贯标作用等。", "常见问题,专利申请问答,专利类型,高企认定条件", "faq.html", body, active="faq", jsonld=web_page_jsonld("常见问题", "知识产权服务常见问答", "faq.html", "FAQPage")))
+    write("faq.html", page(*seo("faq"), "faq.html", body, active="faq", jsonld=web_page_jsonld("常见问题", "知识产权服务常见问答", "faq.html", "FAQPage")))
 
 # ============ 联系我们 ============
 def build_contact():
@@ -630,7 +634,7 @@ def build_contact():
     </div>
   </div>
 </div>''' % (CONTACT["person"], CONTACT["mobile"], CONTACT["tel"], CONTACT["email"], CONTACT["qq"], CONTACT["worktime"], CONTACT["address_full"], CONTACT["postcode"], CONTACT["wechat"], CONTACT["mobile"], CONTACT["mobile"])
-    write("contact.html", page("联系我们｜莞促知产", "联系广东莞促知识产权代理事务所：电话 13925705145，热线 400-990-7388，邮箱 pct@guancu.com，地址 广东省东莞市松山湖园区科技十路5号1栋309室。", "联系我们,知识产权咨询电话,东莞松山湖知识产权,莞促知产联系方式", "contact.html", body, active="contact", jsonld=web_page_jsonld("联系我们", "联系方式与咨询方式", "contact.html", "ContactPage")))
+    write("contact.html", page(*seo("contact"), "contact.html", body, active="contact", jsonld=web_page_jsonld("联系我们", "联系方式与咨询方式", "contact.html", "ContactPage")))
 
 # ============ 网站地图页 ============
 def build_sitemap_html():
@@ -646,7 +650,7 @@ def build_sitemap_html():
 <div class="container" style="padding-top:36px;padding-bottom:80px">
   <div class="sitemap-grid">%s</div>
 </div>''' % cols
-    write("sitemap.html", page("网站地图｜莞促知产", "莞促知产网站地图，快速浏览首页、关于莞促、专业服务、服务流程、新闻资讯、成功案例、常见问题与联系我们等栏目。", "网站地图,站点导航,莞促知产", "sitemap.html", body, active="", jsonld=web_page_jsonld("网站地图", "网站栏目导航", "sitemap.html")))
+    write("sitemap.html", page(*seo("sitemap"), "sitemap.html", body, active="", jsonld=web_page_jsonld("网站地图", "网站栏目导航", "sitemap.html")))
 
 def main():
     build_index(); build_about(); build_group(); build_culture(); build_team(); build_honors()
