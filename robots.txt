@@ -1,0 +1,13 @@
+# robots.txt for https://www.iguancu.cn
+
+User-agent: *
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+Host: https://www.iguancu.cn
+Sitemap: https://www.iguancu.cn/sitemap.xml

@@ -1,0 +1,28 @@
+# ============ 301 规范化与 404（Nginx）============
+server {
+    listen 80;
+    server_name iguancu.cn www.iguancu.cn;
+    return 301 https://www.iguancu.cn$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name iguancu.cn www.iguancu.cn;
+    # ssl_certificate /path/to/cert.pem;
+    # ssl_certificate_key /path/to/key.pem;
+    root /path/to/site;
+    index index.html;
+
+    # 非 www 跳转 www（若主域不带 www 可删除本段并调整 server_name）
+    if ($host = 'iguancu.cn') { return 301 https://www.iguancu.cn$request_uri; }
+
+    # 404 返回正确状态码（不要用 JS/meta 跳转）
+    error_page 404 /404.html;
+    location = /404.html { internal; }
+
+    location / { try_files $uri $uri/ =404; }
+    location ~* \.(css|js|png|jpg|jpeg|gif|svg|webp)$ {
+        expires 7d;
+        add_header Cache-Control "public";
+    }
+}

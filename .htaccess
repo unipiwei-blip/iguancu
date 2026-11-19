@@ -1,0 +1,22 @@
+# ============ 301 规范化（Apache）============
+RewriteEngine On
+
+# 强制 HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://www.iguancu.cn/$1 [R=301,L]
+
+# 统一主域名到 www（若主域不带 www，请删除这两行并调整上方规则）
+RewriteCond %{HTTP_HOST} !^www.iguancu.cn$ [NC]
+RewriteRule ^(.*)$ https://www.iguancu.cn/$1 [R=301,L]
+
+# 目录默认页规范化
+RewriteRule ^index\.html$ / [R=301,L]
+
+# ============ 404 返回正确 HTTP 状态 ============
+ErrorDocument 404 /404.html
+
+# ============ MIME / 缓存 ============
+AddType text/html .html
+<FilesMatch "\.(css|js|png|jpg|jpeg|gif|svg|webp)$">
+  Header set Cache-Control "public, max-age=604800"
+</FilesMatch>
