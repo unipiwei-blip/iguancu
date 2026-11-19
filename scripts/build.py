@@ -16,7 +16,7 @@ def write(path, html):
         f.write(html)
 
 def crumb(*items):
-    parts = ['<a href="/index.html">首页</a>']
+    parts = ['<a href="/">首页</a>']
     for name, href in items:
         parts.append((' / <a href="/%s">%s</a>' % (href, name)) if href else (' / ' + name))
     return '<div class="crumb">' + ''.join(parts) + '</div>'
@@ -635,7 +635,7 @@ def build_contact():
 # ============ 网站地图页 ============
 def build_sitemap_html():
     groups = [
-        ("首页", [("首页", "index.html")]),
+        ("首页", [("首页", "")]),
         ("关于莞促", [(l,h) for l,h in NAV[1]["children"]]),
         ("专业服务", [("服务总览", "services.html")]+[(l,h) for l,h in NAV[2]["children"]]),
         ("服务与资讯", [("服务流程","process.html"),("新闻资讯","news.html"),("通知公告","notice.html"),("政策速递","policy.html"),("知产课堂","knowledge.html"),("成功案例","cases.html"),("常见问题","faq.html"),("联系我们","contact.html")]),

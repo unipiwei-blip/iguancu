@@ -77,22 +77,24 @@ def web_page_jsonld(name, desc, url, ptype="WebPage"):
     }
 
 def header(active=""):
+    def link(h):
+        return "" if h == "index.html" else h
     nav_html = []
     for item in NAV:
         is_active = " is-active" if item["href"] == active or active.startswith(item["href"].replace(".html","")) and item["href"] != "index.html" else ""
         if item.get("children"):
-            subs = "".join(f'<a href="/{h}"><span class="dot"></span>{l}</a>' for l, h in item["children"])
+            subs = "".join(f'<a href="/{link(h)}"><span class="dot"></span>{l}</a>' for l, h in item["children"])
             nav_html.append(f'''<li class="nav-drop">
-              <a class="nav-link{is_active}" href="/{item['href']}">{item['label']}</a>
+              <a class="nav-link{is_active}" href="/{link(item['href'])}">{item['label']}</a>
               <div class="nav-drop__menu">{subs}</div>
             </li>''')
         else:
-            nav_html.append(f'<li><a class="nav-link{is_active}" href="/{item["href"]}">{item["label"]}</a></li>')
+            nav_html.append(f'<li><a class="nav-link{is_active}" href="/{link(item["href"])}">{item["label"]}</a></li>')
     nav = "\n".join(nav_html)
     return f'''<div class="topbar">莞促集团 · 企业服务 · 财税 · 知识产权 ｜ 扎根东莞，服务粤港澳大湾区</div>
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="/index.html" aria-label="{BRAND}首页">
+    <a class="brand" href="/" aria-label="{BRAND}首页">
       <img class="brand__mark" src="/assets/img/logo-blue.png" alt="">
       <span class="brand__name">{BRAND_NAV}</span>
     </a>
