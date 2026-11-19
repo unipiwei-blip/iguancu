@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """统一模板：SEO head、页头、页脚、JSON-LD。所有页面复用，保证一致性与 SEO 完整。"""
 import json
-from config import BASE, BRAND, BRAND_SHORT, BRAND_NAV, BRAND_EN, SLOGAN, LOC, CONTACT, FRIENDS, NAV, GOOGLE_SITE_VERIFICATION
+from config import BASE, BRAND, BRAND_SHORT, BRAND_NAV, BRAND_EN, SLOGAN, LOC, CONTACT, FRIENDS, NAV, GOOGLE_SITE_VERIFICATION, BAIDU_SITE_VERIFICATION
 
 YEAR = 2026
 
@@ -29,6 +29,7 @@ def seo_head(title, description, keywords, canonical, og_type="website", og_imag
 <meta name="robots" content="index,follow">
 <meta name="author" content="{BRAND}">
 <meta name="google-site-verification" content="{GOOGLE_SITE_VERIFICATION}">
+<meta name="baidu-site-verification" content="{BAIDU_SITE_VERIFICATION}">
 <link rel="icon" href="/assets/img/logo-blue.png" type="image/png">
 <link rel="stylesheet" href="/assets/css/style.css">
 {ld_script}

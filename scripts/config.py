@@ -14,6 +14,7 @@ LOC = "扎根东莞 · 服务湾区"
 
 # 站长平台站点验证（Google Search Console meta 标记，全站页面 head 统一输出）
 GOOGLE_SITE_VERIFICATION = "isxgtGZuv8kI_t3Brq7RnN7PfQyFrvv357rXZlQv5Zw"
+BAIDU_SITE_VERIFICATION = "codeva-jcTHOQaDtB"
 
 # 真实联系方式（采集自百度智能站点，重新排版呈现）
 CONTACT = {
