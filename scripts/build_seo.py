@@ -3,7 +3,7 @@
 import os, sys, io, datetime
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from config import BASE, BRAND, CONTACT, BRAND_SHORT, NEWS
+from config import BASE, BRAND, CONTACT, BRAND_NAV, NEWS
 
 SITE = r"D:\项目管理文件夹\2026-11-19-15-27-25\site"
 TODAY = datetime.date.today().isoformat()  # lastmod 用生成当天
@@ -75,8 +75,8 @@ def build_404():
 <body>
 <header class="site-header"><div class="container header-inner">
   <a class="brand" href="/index.html" aria-label="返回首页">
-    <img class="brand__mark" src="/assets/img/logo-mark-white.png" alt="">
-    <span><span class="brand__name">__SHORT__</span><br><span class="brand__sub">知识产权 · 科技创新服务</span></span>
+    <img class="brand__mark" src="/assets/img/logo-blue.png" alt="">
+    <span class="brand__name">__NAV__</span>
   </a>
 </div></header>
 <main>
@@ -98,7 +98,7 @@ def build_404():
 </div></footer>
 </body>
 </html>
-'''.replace("__BRAND__", BRAND).replace("__SHORT__", BRAND_SHORT).replace("__WORKTIME__", CONTACT["worktime"])
+'''.replace("__BRAND__", BRAND).replace("__NAV__", BRAND_NAV).replace("__WORKTIME__", CONTACT["worktime"])
     with open(os.path.join(SITE, "404.html"), "w", encoding="utf-8") as f:
         f.write(html)
     print("404.html done (noindex,follow, no redirect)")
