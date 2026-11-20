@@ -561,6 +561,12 @@ ARTICLE_BODIES = {
     ],
 }
 
+# 文章正文配图（流程图信息图）：紧跟首段插入，完整显示、不裁切
+ARTICLE_IMAGES = {
+    "news/n19.html": ("assets/img/covers/seo-trademark-guide.jpg", "商标注册流程示意图：从注册前查询到核准领证的五个步骤"),
+    "news/n20.html": ("assets/img/covers/seo-patent-timeline.jpg", "三种专利授权流程对比：发明、实用新型与外观设计的各阶段"),
+}
+
 # 文章 FAQ：既渲染问答区块，也生成 FAQPage 结构化数据（利于搜索富摘要）
 ARTICLE_FAQS = {
     "news/n19.html": [
@@ -605,6 +611,11 @@ def build_articles():
                     paras.append("<h3>%s</h3>" % seg)
                 else:
                     paras.append("<p>%s</p>" % seg)
+        # 正文配图：在引言段（第 2 段）后插入流程图，完整显示不裁切
+        art_img = ARTICLE_IMAGES.get(n["file"])
+        if art_img and len(paras) >= 2:
+            img_src, img_cap = art_img
+            paras.insert(2, '<figure class="article-figure"><img src="/%s" alt="%s"><figcaption>%s</figcaption></figure>' % (img_src, img_cap, img_cap))
         paras.append("<p>如需了解本文涉及业务的具体办理方式，欢迎通过官网“联系我们”栏目与我们沟通，由专业顾问结合您的实际情况提供说明。</p>")
         # FAQ 区块：渲染问答，并配套 FAQPage 结构化数据
         faq = ARTICLE_FAQS.get(n["file"])

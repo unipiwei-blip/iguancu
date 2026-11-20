@@ -178,11 +178,11 @@ CULTURE = {
 NEWS = [
     {"file": "news/n19.html", "cat": "知产课堂", "date": "2026-11-20",
      "title": "东莞商标注册流程详解：从查询到领证要走哪些步骤",
-     "cover": "assets/img/covers/seo-trademark-guide.jpg",
+     "cover": "assets/img/covers/cover-trademark-guide.jpg",
      "desc": "准备在东莞注册商标，先弄清完整流程更省心。本文梳理注册前的查询准备、材料清单、申请提交、审查环节与领证后的注意事项，帮助企业按步骤推进。"},
     {"file": "news/n20.html", "cat": "知产课堂", "date": "2026-11-20",
      "title": "发明专利、实用新型、外观专利授权流程对比：各要经历哪些阶段",
-     "cover": "assets/img/covers/seo-patent-timeline.jpg",
+     "cover": "assets/img/covers/cover-patent-compare.jpg",
      "desc": "三种专利的授权流程并不相同。本文对比发明专利、实用新型与外观设计在受理、审查、授权等各阶段的差异，帮助企业理解各自需要经历哪些环节。"},
     {"file": "news/n01.html", "cat": "通知公告", "date": "2026-11-18",
      "title": "关于开通知识产权免费检索与初步评估服务的通知",
