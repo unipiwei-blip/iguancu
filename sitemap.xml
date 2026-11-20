@@ -139,6 +139,18 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://www.iguancu.cn/news/n19.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.iguancu.cn/news/n20.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.iguancu.cn/news/n01.html</loc>
     <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
