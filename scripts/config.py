@@ -176,6 +176,10 @@ CULTURE = {
 
 # 资讯统一在 news.html 发布，按 cat 归类到 notice/policy/knowledge 等栏目
 NEWS = [
+    {"file": "news/n21.html", "cat": "事务所动态", "date": "2026-11-21",
+     "title": "常平个私协杯篮球邀请赛开赛 莞促集团赞助支持",
+     "cover": "assets/img/covers/cover-basketball.jpg",
+     "desc": "第一届2026年“东莞市常平个体私营企业协会杯”篮球邀请赛在常平举行，莞促集团赞助支持，常平镇赵宁发副镇长跳球开球，各企业代表队同场竞技。"},
     {"file": "news/n19.html", "cat": "知产课堂", "date": "2026-11-20",
      "title": "东莞商标注册流程详解：从查询到领证要走哪些步骤",
      "cover": "assets/img/covers/cover-trademark-guide.jpg",

@@ -414,6 +414,17 @@ def build_news():
 
 # 文章正文（按文章标题提供贴合内容；键为文件名，未提供则用通用模板）
 ARTICLE_BODIES = {
+    "news/n21.html": [
+        "2026年11月21日，第一届2026年“东莞市常平个体私营企业协会杯”篮球邀请赛在常平举行。本次赛事由东莞市常平个体私营企业协会主办，莞促集团有限公司赞助支持，以篮球为纽带，为本地企业与各界人士搭建交流互动的平台。莞促知产所在的莞促集团全程参与，与协会会员企业共赴这场活力之约。",
+        "一、启动仪式与出席嘉宾",
+        "赛事启动仪式上，常平镇赵宁发副镇长跳球开球，为比赛拉开序幕。东莞市市场监督管理局常平分局杜遵凯副局长，东莞市常平个体私营企业协会会长、莞促集团董事长谭喜，协会党支部书记李达豪、秘书长彭东正，协会副会长李海南出席活动。莞促集团有限公司员工到场助阵，集团党支部委员孙晓君出席。",
+        "二、董事长谭喜：以体育为桥，凝聚企业力量",
+        "作为东莞市常平个体私营企业协会会长，同时也是莞促集团董事长，谭喜在活动现场表示，篮球赛所体现的团队协作与拼搏精神，与企业经营发展中所倡导的携手共进高度契合。协会举办篮球邀请赛，为会员企业搭建了体育交流的平台，有助于增进彼此了解、凝聚发展合力。莞促集团赞助支持本次赛事，正是希望以实际行动支持地方企业文化建设，助力营造积极、健康、向上的营商氛围。他寄语参赛队伍赛出水平、赛出风格，把赛场上的拼搏精神转化为推动企业发展的动力。",
+        "三、赛场风采与交流互动",
+        "比赛过程中，各参赛队伍奋勇争先、配合默契，攻防转换间展现出良好的竞技状态与团队精神。莞促集团代表队与常平个私协等队伍同场竞技，在赛场上切磋球技、增进友谊。赛场内外，企业代表与员工朋友交流互动，气氛热烈，充分展现了常平企业家群体昂扬向上的精神风貌。",
+        "四、莞促知产：与集团一同扎根常平、服务企业",
+        "作为莞促集团旗下专注知识产权与科技申报服务的机构，莞促知产始终与集团一同扎根常平、服务本地企业。本次集团赞助支持协会杯篮球邀请赛，是莞促集团积极履行社会责任、参与地方经济文化建设的又一体现。莞促知产也将继续以专业的专利、商标、版权及高新技术企业认定服务，陪伴企业稳健成长，与企业共同迸发活力。",
+    ],
     "news/n19.html": [
         "在东莞办理商标注册，按流程分步推进可以减少反复。本文梳理从注册前查询到最终领证的各个环节，以及每一步需要准备的材料，供企业在安排商标布局时参考。具体受理要求以国家知识产权局商标局的最新规定为准。",
         "一、注册前的查询准备",
@@ -567,6 +578,17 @@ ARTICLE_IMAGES = {
     "news/n20.html": ("assets/img/covers/seo-patent-timeline.jpg", "三种专利授权流程对比：发明、实用新型与外观设计的各阶段"),
 }
 
+# 活动纪实类文章：多张实拍图集，正文按序完整展示
+ARTICLE_GALLERY = {
+    "news/n21.html": [
+        ("assets/img/news/game-opening.jpg", "2026年“东莞市常平个体私营企业协会杯”篮球邀请赛启动仪式现场，嘉宾与各参赛队伍合影"),
+        ("assets/img/news/game-score.jpg", "赛场计分牌：莞促集团代表队对阵常平个私协代表队"),
+        ("assets/img/news/game-teams.jpg", "参赛队伍赛后合影"),
+        ("assets/img/news/group-photo1.jpg", "莞促集团有限公司员工出席活动"),
+        ("assets/img/news/group-photo2.jpg", "莞促集团有限公司员工在活动现场合影"),
+    ],
+}
+
 # 文章 FAQ：既渲染问答区块，也生成 FAQPage 结构化数据（利于搜索富摘要）
 ARTICLE_FAQS = {
     "news/n19.html": [
@@ -616,14 +638,23 @@ def build_articles():
         if art_img and len(paras) >= 2:
             img_src, img_cap = art_img
             paras.insert(2, '<figure class="article-figure"><img src="/%s" alt="%s"><figcaption>%s</figcaption></figure>' % (img_src, img_cap, img_cap))
-        paras.append("<p>如需了解本文涉及业务的具体办理方式，欢迎通过官网“联系我们”栏目与我们沟通，由专业顾问结合您的实际情况提供说明。</p>")
+        # 活动图集：正文中按序完整展示实拍照片
+        gallery = ARTICLE_GALLERY.get(n["file"])
+        if gallery:
+            for gi, (g_src, g_cap) in enumerate(gallery):
+                paras.insert(len(paras), '<figure class="article-figure"><img src="/%s" alt="%s"><figcaption>%s</figcaption></figure>' % (g_src, g_cap, g_cap))
+        # 新闻纪实类不放业务引导语与知识说明
+        is_news = n["file"] in ARTICLE_GALLERY
+        if not is_news:
+            paras.append("<p>如需了解本文涉及业务的具体办理方式，欢迎通过官网“联系我们”栏目与我们沟通，由专业顾问结合您的实际情况提供说明。</p>")
         # FAQ 区块：渲染问答，并配套 FAQPage 结构化数据
         faq = ARTICLE_FAQS.get(n["file"])
         if faq:
             paras.append("<h3>常见问题</h3>")
             for q, a in faq:
                 paras.append('<div class="faq-item"><div class="faq-q"><span class="qmark">问</span><span>%s</span></div><div class="faq-a"><strong>答：</strong>%s</div></div>' % (q, a))
-        paras.append("<p style=\"color:#5A6B85;font-size:13px\">说明：本文内容以国家主管部门最新规定与官方文件为准，仅供知识分享参考。</p>")
+        if not is_news:
+            paras.append("<p style=\"color:#5A6B85;font-size:13px\">说明：本文内容以国家主管部门最新规定与官方文件为准，仅供知识分享参考。</p>")
         bodycls = "article-body notice-body" if n["cat"]=="通知公告" else "article-body"
         body = '''<div class="container" style="padding:36px 0 80px">
   <article class="article-wrap">
