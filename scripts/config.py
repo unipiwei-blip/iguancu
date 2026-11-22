@@ -176,6 +176,10 @@ CULTURE = {
 
 # 资讯统一在 news.html 发布，按 cat 归类到 notice/policy/knowledge 等栏目
 NEWS = [
+    {"file": "news/n24.html", "cat": "知产课堂", "date": "2026-11-23",
+     "title": "做好企业的知识产权布局与风险管理，从这几个方面入手",
+     "cover": "assets/img/covers/cover-ip-layout.jpg",
+     "desc": "知识产权的价值不在零散的证书，而在与业务匹配的布局和配套的风险管理。本文用通俗方式讲清企业如何做好知识产权布局、识别并防范各类知识产权风险。"},
     {"file": "news/n23.html", "cat": "知产课堂", "date": "2026-11-23",
      "title": "做跨境电商，知识产权应该怎么布局？",
      "cover": "assets/img/covers/cover-cross-border.jpg",

@@ -226,7 +226,7 @@ img{max-width:100%;display:block}
 .article-title{font-size:30px;color:var(--ink);font-weight:800;line-height:1.5;margin-bottom:18px;text-align:center}
 .article-meta{text-align:center;color:var(--muted);font-size:14px;margin-bottom:30px;padding-bottom:22px;border-bottom:1px solid var(--line)}
 .article-body p{color:#33445f;line-height:2.1;margin-bottom:18px;font-size:16px;text-align:left;text-indent:2em}
-.article-body h3{font-size:20px;color:var(--ink);margin:28px 0 14px;padding-left:12px;border-left:3px solid var(--blue)}
+.article-body h3{font-size:20px;color:var(--ink);margin:28px 0 14px;padding-left:12px;border-left:3px solid var(--blue);text-indent:2em}
 .article-cover{width:100%;height:auto;object-fit:contain;border-radius:var(--r-md);margin-bottom:28px;display:block}
 .article-figure{margin:24px 0 30px;text-align:center}
 .article-figure img{width:100%;height:auto;object-fit:contain;display:block;border-radius:var(--r-md)}
