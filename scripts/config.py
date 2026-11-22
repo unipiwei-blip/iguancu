@@ -176,6 +176,10 @@ CULTURE = {
 
 # 资讯统一在 news.html 发布，按 cat 归类到 notice/policy/knowledge 等栏目
 NEWS = [
+    {"file": "news/n23.html", "cat": "知产课堂", "date": "2026-11-23",
+     "title": "做跨境电商，知识产权应该怎么布局？",
+     "cover": "assets/img/covers/cover-cross-border.jpg",
+     "desc": "跨境电商上架快、平台规则主导，商标抢注、跟卖、侵权投诉等风险集中。本文从负责人视角，讲企业如何把知识产权布局嵌进选品、品牌备案、专利、版权到维权应对的每个环节。"},
     {"file": "news/n22.html", "cat": "事务所动态", "date": "2026-11-23",
      "title": "助力企业出海，莞促知识产权怎么做",
      "cover": "assets/img/covers/cover-go-global.jpg",
