@@ -176,6 +176,10 @@ CULTURE = {
 
 # 资讯统一在 news.html 发布，按 cat 归类到 notice/policy/knowledge 等栏目
 NEWS = [
+    {"file": "news/n22.html", "cat": "事务所动态", "date": "2026-11-23",
+     "title": "助力企业出海，莞促知识产权怎么做",
+     "cover": "assets/img/covers/cover-go-global.jpg",
+     "desc": "企业出海路上，商标抢注、海外侵权投诉等知识产权风险不容忽视。本文从负责人视角，讲莞促知产如何从出海前的布局、商标专利先行到纠纷应对，为企业守住知识产权关口。"},
     {"file": "news/n21.html", "cat": "事务所动态", "date": "2026-11-21",
      "title": "常平个私协杯篮球邀请赛开赛 莞促集团赞助支持",
      "cover": "assets/img/covers/cover-basketball.jpg",
