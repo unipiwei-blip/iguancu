@@ -176,6 +176,10 @@ CULTURE = {
 
 # 资讯统一在 news.html 发布，按 cat 归类到 notice/policy/knowledge 等栏目
 NEWS = [
+    {"file": "news/n25.html", "cat": "事务所动态", "date": "2026-11-23",
+     "title": "一家好的知识产权公司应该是怎么样的？莞促知产负责人这样答",
+     "cover": "assets/img/covers/cover-good-ip.jpg",
+     "desc": "好的知识产权公司应该是什么样？本文从负责人视角，围绕先懂企业、流程透明、专业对口、帮权利增值、保密诚信、长期陪伴六个方面，讲莞促知产怎么做。"},
     {"file": "news/n24.html", "cat": "知产课堂", "date": "2026-11-23",
      "title": "做好企业的知识产权布局与风险管理，从这几个方面入手",
      "cover": "assets/img/covers/cover-ip-layout.jpg",
