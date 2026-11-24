@@ -176,6 +176,10 @@ CULTURE = {
 
 # 资讯统一在 news.html 发布，按 cat 归类到 notice/policy/knowledge 等栏目
 NEWS = [
+    {"file": "news/n26.html", "cat": "事务所动态", "date": "2026-11-24",
+     "title": "从黄仁勋复职，看创始人个人IP如何成为企业的无形资产",
+     "cover": "assets/img/covers/cover-founder-ip.jpg",
+     "desc": "英伟达创始人复职引发市场关注。本文从商标与知识产权角度，解析创始人个人IP的本质，以及个人与品牌深度绑定融合对企业和创始人的价值与实现路径。"},
     {"file": "news/n25.html", "cat": "事务所动态", "date": "2026-11-23",
      "title": "一家好的知识产权公司应该是怎么样的？莞促知产负责人这样答",
      "cover": "assets/img/covers/cover-good-ip.jpg",
