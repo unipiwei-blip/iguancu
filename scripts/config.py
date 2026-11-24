@@ -176,6 +176,10 @@ CULTURE = {
 
 # 资讯统一在 news.html 发布，按 cat 归类到 notice/policy/knowledge 等栏目
 NEWS = [
+    {"file": "news/n27.html", "cat": "知产课堂", "date": "2026-11-25",
+     "title": "一字之差赔500万：从塔斯汀案看企业商标布局的三个教训",
+     "cover": "assets/img/covers/cover-trademark-case.jpg",
+     "desc": "一字之差的近似商标，签下1300家加盟店，最终被判赔500万元。本文剖析这起最新商标侵权案，讲清近似认定、无效宣告的法律逻辑，以及给企业和加盟商的三点启示。"},
     {"file": "news/n26.html", "cat": "事务所动态", "date": "2026-11-24",
      "title": "从黄仁勋复职，看创始人个人IP如何成为企业的无形资产",
      "cover": "assets/img/covers/cover-founder-ip.jpg",
