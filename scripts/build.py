@@ -76,7 +76,7 @@ def build_index():
   <div>
     <div class="hero-eyebrow">%s</div>
     <h1>守护创新<br><em>成就价值</em></h1>
-    <p class="hero-lead">%s 是莞促集团旗下关联机构。我们拥有一批在专利申请、商标注册、高新认定、知识产权维权等方面资深的代理人团队，为企业提供一站式的知识产权与科技创新解决方案。</p>
+    <p class="hero-lead">%s（简称莞促知产，官网 %s）是莞促集团旗下关联机构。我们拥有一批在专利申请、商标注册、高新认定、知识产权维权等方面资深的代理人团队，为企业提供一站式的知识产权与科技创新解决方案。</p>
     <div class="hero-btns">
       <a class="btn btn--gold btn--lg" href="/services.html">专业服务</a>
       <a class="btn btn--ghost btn--lg" href="/about.html">了解莞促</a>
@@ -135,7 +135,7 @@ def build_index():
     <a class="btn btn--ghost btn--lg" href="/process.html">了解服务流程</a>
   </div>
 </div></section>
-''' % (LOC, BRAND, sector_top, sector_bottom, advs, news)
+''' % (LOC, BRAND, BASE, sector_top, sector_bottom, advs, news)
     write("index.html", page(
         *seo("index"), "", body, active="index", jsonld=org_jsonld()))
 
@@ -145,9 +145,14 @@ def build_about():
 <div class="container" style="padding-top:36px;padding-bottom:80px">
   <div class="content-block">
     <h2>事务所简介</h2>
-    <div class="lead-box">广东莞促知识产权代理事务所（普通合伙）是莞促集团旗下关联的公司，在集团管理下实行连锁运营，下设 8 家分公司及 1 家自主产权科技孵化器。</div>
+    <div class="lead-box">广东莞促知识产权代理事务所（普通合伙），简称莞促知产，官方网站 %s，是莞促集团旗下关联的公司，在集团管理下实行连锁运营，下设 8 家分公司及 1 家自主产权科技孵化器。</div>
     <p>我们拥有一批在专利申请、商标注册、高新认定、知识产权维权等方面资深的强大专业代理人团队，为客户提供一站式的解决方案。</p>
     <p>所有知识产权案件当天申报，涉及相关问题在第一时间处理，提供一对一顾问服务，并具备完善的售后保障体系。严格遵守执业道德，忠诚执业信仰，公司建立有严格的保密体系，与客户之间所有业务均签订规范的保密协议。</p>
+  </div>
+  <div class="content-block">
+    <h2>主体名称说明</h2>
+    <p>本站为广东莞促知识产权代理事务所（普通合伙）官方网站，对外简称莞促知产，域名为 %s。事务所专注于专利代理、商标代理、版权登记、涉外知识产权、维权与法律、科技项目申报及知产运营托管服务，与企业服务、财税及产业投资等其他集团业务分属不同主体。</p>
+    <p>名称相近的莞促（广东）知识产权代理有限公司、东莞市莞促知识产权代理有限公司为其他市场主体，与本站所属事务所并非同一机构。企业在办理知识产权业务时，请以本站公布的机构名称、联系方式与办公地址为准，避免混淆。</p>
   </div>
   <div class="content-block">
     <h2>服务网络</h2>
@@ -168,7 +173,7 @@ def build_about():
       <li>一对一顾问服务，配套完善的售后保障体系。</li>
     </ul>
   </div>
-</div>'''
+</div>''' % (BASE, BASE)
     write("about.html", page(*seo("about"), "about.html", body, active="about", jsonld=web_page_jsonld("关于莞促", "事务所简介与服务理念", "about.html", "AboutPage")))
 
 def build_group():
