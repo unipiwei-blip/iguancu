@@ -176,6 +176,18 @@ CULTURE = {
 
 # 资讯统一在 news.html 发布，按 cat 归类到 notice/policy/knowledge 等栏目
 NEWS = [
+    {"file": "news/n28.html", "cat": "知产课堂", "date": "2026-11-25",
+     "title": "商标注册被驳回后怎么办？莞促知产讲清驳回复审流程",
+     "cover": "assets/img/covers/cover-rejection-trademark.jpg",
+     "desc": "收到商标驳回通知不等于品牌注册走到终点。莞促知产从分清驳回范围、读懂驳回理由，到判断是否复审、准备材料与推进流程，讲清驳回之后的每一步该怎么走。"},
+    {"file": "news/n29.html", "cat": "知产课堂", "date": "2026-11-25",
+     "title": "专利申请被驳回后有哪些救济途径？莞促知产梳理复审流程",
+     "cover": "assets/img/covers/cover-rejection-patent.jpg",
+     "desc": "专利申请被驳回并不意味着技术无法保护。莞促知产梳理审查意见答复、驳回后的复审请求以及复审不成后的后续途径，帮企业看清每一步该怎么走。"},
+    {"file": "news/n30.html", "cat": "知产课堂", "date": "2026-11-25",
+     "title": "高企认定对知识产权有什么要求？莞促知产讲清布局要点",
+     "cover": "assets/img/covers/cover-hightech-ip.jpg",
+     "desc": "高新技术企业认定离不开知识产权支撑。莞促知产从知识产权与主营产品的关联、权属清晰度、权利有效性等方面，讲清企业该如何提前规划布局。"},
     {"file": "news/n27.html", "cat": "知产课堂", "date": "2026-11-25",
      "title": "一字之差赔500万：从塔斯汀案看企业商标布局的三个教训",
      "cover": "assets/img/covers/cover-trademark-case.jpg",
