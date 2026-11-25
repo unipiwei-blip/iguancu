@@ -176,6 +176,18 @@ CULTURE = {
 
 # 资讯统一在 news.html 发布，按 cat 归类到 notice/policy/knowledge 等栏目
 NEWS = [
+    {"file": "news/n31.html", "cat": "政策速递", "date": "2026-11-25",
+     "title": "莞促知产解读：专利和商标审查十五五规划，企业申请要更重质量",
+     "cover": "assets/img/covers/cover-policy-review.jpg",
+     "desc": "国家知识产权局印发《专利和商标审查“十五五”规划》，传递审查质量优先的明确信号。莞促知产结合规划内容，解读质量导向、新兴领域规则、智能审查与海外布局对企业的影响。"},
+    {"file": "news/n32.html", "cat": "政策速递", "date": "2026-11-25",
+     "title": "莞促知产解读：知识产权海关协同保护新规，外向型企业该做哪些准备",
+     "cover": "assets/img/covers/cover-policy-customs.jpg",
+     "desc": "国家知识产权局与海关总署联合发文强化知识产权协同保护。莞促知产解读海关备案的价值、办理要点与进出口侵权救济渠道，帮外向型企业把好口岸这道关。"},
+    {"file": "news/n33.html", "cat": "政策速递", "date": "2026-11-25",
+     "title": "莞促知产解读：数据也能确权，数据知识产权登记怎么办",
+     "cover": "assets/img/covers/cover-policy-data.jpg",
+     "desc": "两部门发文加强知识产权数据资源开发利用，数据知识产权登记试点持续推进。莞促知产梳理数据确权的办理环节、证书用途与企业准备要点，讲清这一新兴领域。"},
     {"file": "news/n28.html", "cat": "知产课堂", "date": "2026-11-25",
      "title": "商标注册被驳回后怎么办？莞促知产讲清驳回复审流程",
      "cover": "assets/img/covers/cover-rejection-trademark.jpg",
