@@ -280,12 +280,16 @@ def build_services():
 <div class="container" style="padding-top:36px;padding-bottom:80px">
   <div class="lead-box">以客户需求和产品发展理念为驱动力，围绕知识产权的创造、运用、保护与管理，形成七大专业服务板块，为企业提供一站式解决方案。</div>
   <div class="sector-grid">%s</div>
+  <div class="content-block" style="margin-top:28px">
+    <h2>东莞本地服务</h2>
+    <ul>%s</ul>
+  </div>
   <div class="content-block" style="margin-top:28px;text-align:center">
     <h2 style="border:none;padding:0">需要哪方面的帮助？</h2>
     <p>欢迎说明业务类型与企业情况，我们将匹配专业团队与您对接。</p>
     <a class="btn btn--gold" href="/contact.html" style="margin-top:10px">立即咨询 →</a>
   </div>
-</div>''' % sectors
+</div>''' % (sectors, "".join('<li><a href="/%s">%s</a></li>' % (c["file"], c["kw"]) for c in CITY_PAGES))
     write("services.html", page(*seo("services"), "services.html", body, active="services", jsonld=ld))
 
 def build_service_detail(s):
@@ -313,6 +317,63 @@ def build_service_detail(s):
     fn = "service-"+s["id"]+".html"
     st, sd, sk = SERVICE_SEO[s["id"]]
     write(fn, page(st, sd, sk, fn, body, active="services", jsonld=web_page_jsonld(s["name"], s["desc"], fn, "ServicePage")))
+
+# ============ 东莞地域核心词落地页 ============
+def build_city_pages():
+    for c in CITY_PAGES:
+        blocks = []
+        for title, paras in c["sections"]:
+            ps = "".join("<p>%s</p>" % p for p in paras)
+            blocks.append('<div class="content-block"><h2>%s</h2>%s</div>' % (title, ps))
+        blocks_html = "".join(blocks)
+        faq_items = "".join(
+            '<div class="faq-item"><div class="faq-q"><span class="qmark">问</span><span>%s</span></div><div class="faq-a"><strong>答：</strong>%s</div></div>' % (q, a)
+            for q, a in c["faqs"]
+        )
+        related = "".join(
+            '<li><a href="/%s">%s</a></li>' % (o["file"], o["kw"])
+            for o in CITY_PAGES if o["file"] != c["file"]
+        )
+        body = ph(c["kw"], c["service"], "DONGGUAN SERVICE") + '''
+<div class="container" style="padding-top:36px;padding-bottom:80px">
+  <div class="lead-box">%s</div>
+  %s
+  <div class="content-block">
+    <h2>常见问题</h2>
+    %s
+  </div>
+  <div class="content-block">
+    <h2>相关服务</h2>
+    <ul>%s</ul>
+    <div style="text-align:center;margin-top:18px">
+      <a class="btn btn--gold" href="/contact.html">咨询 %s →</a>
+    </div>
+  </div>
+</div>''' % (c["lead"], blocks_html, faq_items, related, c["kw"])
+        # Service + LocalBusiness 结构化数据，标注东莞本地服务属性与 FAQ
+        ld = {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Service",
+                    "name": c["service"],
+                    "serviceType": c["kw"],
+                    "description": c["desc"],
+                    "provider": {"@type": "Organization", "name": BRAND, "url": BASE + "/"},
+                    "areaServed": {"@type": "AdministrativeArea", "name": "东莞市"},
+                    "url": BASE + "/" + c["file"],
+                },
+                {
+                    "@type": "FAQPage",
+                    "mainEntity": [
+                        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}}
+                        for q, a in c["faqs"]
+                    ],
+                },
+            ],
+        }
+        write(c["file"], page(c["title"], c["desc"], c["keywords"], c["file"], body,
+                              active="services", jsonld=ld))
 
 # ============ 服务流程 ============
 def build_process():
@@ -418,6 +479,34 @@ def build_news():
     news_listing("政策速递", "及时传递知识产权与科技政策要点", "POLICY", [n for n in NEWS if n["cat"]=="政策速递"] or NEWS[:3], "policy.html", "news")
 
 # 文章正文（按文章标题提供贴合内容；键为文件名，未提供则用通用模板）
+# 文章 → 东莞地域落地页内链映射（集中主关键词权重）
+CITY_LINK_BY_ARTICLE = {
+    # 商标类 → 东莞商标注册
+    "news/n19.html": ("dongguan-shangbiao-zhuce.html", "东莞商标注册"),
+    "news/n34.html": ("dongguan-shangbiao-zhuce.html", "东莞商标注册"),
+    "news/n35.html": ("dongguan-shangbiao-zhuce.html", "东莞商标注册"),
+    "news/n36.html": ("dongguan-shangbiao-zhuce.html", "东莞商标注册"),
+    "news/n11.html": ("dongguan-shangbiao-zhuce.html", "东莞商标注册"),
+    "news/n14.html": ("dongguan-shangbiao-zhuce.html", "东莞商标注册"),
+    "news/n28.html": ("dongguan-shangbiao-zhuce.html", "东莞商标注册"),
+    "news/n27.html": ("dongguan-shangbiao-zhuce.html", "东莞商标注册"),
+    # 专利类 → 东莞专利申请
+    "news/n20.html": ("dongguan-zhuanli-shenqing.html", "东莞专利申请"),
+    "news/n29.html": ("dongguan-zhuanli-shenqing.html", "东莞专利申请"),
+    "news/n05.html": ("dongguan-zhuanli-shenqing.html", "东莞专利申请"),
+    "news/n08.html": ("dongguan-zhuanli-shenqing.html", "东莞专利申请"),
+    "news/n10.html": ("dongguan-zhuanli-shenqing.html", "东莞专利申请"),
+    # 布局/高企/综合类 → 东莞知识产权
+    "news/n24.html": ("dongguan-zhishichanquan.html", "东莞知识产权"),
+    "news/n30.html": ("dongguan-zhishichanquan.html", "东莞知识产权"),
+    "news/n23.html": ("dongguan-zhishichanquan.html", "东莞知识产权"),
+    "news/n22.html": ("dongguan-zhishichanquan.html", "东莞知识产权"),
+    "news/n25.html": ("dongguan-zhishichanquan.html", "东莞知识产权"),
+    "news/n31.html": ("dongguan-zhishichanquan.html", "东莞知识产权"),
+    "news/n32.html": ("dongguan-zhishichanquan.html", "东莞知识产权"),
+    "news/n33.html": ("dongguan-zhishichanquan.html", "东莞知识产权"),
+}
+
 ARTICLE_BODIES = {
     "news/n34.html": [
         "在东莞办商标注册，很多人第一反应是先想名字，等到真正要提交时才发现材料没备齐，来回补件耽误不少时间。材料准备看似琐碎，却直接关系到申请能不能顺利受理。莞促知产就把东莞商标注册通常需要准备的材料和常见注意点讲清楚，帮企业少走弯路。",
@@ -1024,7 +1113,13 @@ def build_articles():
         # 新闻纪实类不放业务引导语与知识说明
         is_news = n["file"] in ARTICLE_GALLERY
         if not is_news:
-            paras.append("<p>如需了解本文涉及业务的具体办理方式，欢迎通过官网“联系我们”栏目与我们沟通，由专业顾问结合您的实际情况提供说明。</p>")
+            # 内链到东莞地域落地页：把主关键词信号集中到转化页
+            city_link = CITY_LINK_BY_ARTICLE.get(n["file"])
+            if city_link:
+                url, kw = city_link
+                paras.append('<p>想进一步了解 <a href="/%s">%s</a> 的办理流程与本地服务，可查看本站对应服务页，或通过“联系我们”栏目由专业顾问结合您的情况提供说明。</p>' % (url, kw))
+            else:
+                paras.append("<p>如需了解本文涉及业务的具体办理方式，欢迎通过官网“联系我们”栏目与我们沟通，由专业顾问结合您的实际情况提供说明。</p>")
         # FAQ 区块：渲染问答，并配套 FAQPage 结构化数据
         faq = ARTICLE_FAQS.get(n["file"])
         if faq:
@@ -1128,6 +1223,7 @@ def build_sitemap_html():
         ("首页", [("首页", "")]),
         ("关于莞促", [(l,h) for l,h in NAV[1]["children"]]),
         ("专业服务", [("服务总览", "services.html")]+[(l,h) for l,h in NAV[2]["children"]]),
+        ("东莞本地服务", [(c["kw"], c["file"]) for c in CITY_PAGES]),
         ("服务与资讯", [("服务流程","process.html"),("新闻资讯","news.html"),("通知公告","notice.html"),("政策速递","policy.html"),("知产课堂","knowledge.html"),("成功案例","cases.html"),("常见问题","faq.html"),("联系我们","contact.html")]),
         ("资讯文章", [(n["title"], n["file"]) for n in NEWS]),
     ]
@@ -1142,6 +1238,7 @@ def main():
     build_index(); build_about(); build_group(); build_culture(); build_team(); build_honors()
     build_services()
     for s in SERVICES: build_service_detail(s)
+    build_city_pages()
     build_process(); build_news(); build_articles(); build_cases(); build_faq(); build_contact(); build_sitemap_html()
     print("PAGES BUILT")
 

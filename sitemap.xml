@@ -85,6 +85,24 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.iguancu.cn/dongguan-shangbiao-zhuce.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.iguancu.cn/dongguan-zhuanli-shenqing.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.iguancu.cn/dongguan-zhishichanquan.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.iguancu.cn/process.html</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
