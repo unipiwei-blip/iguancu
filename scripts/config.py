@@ -176,6 +176,18 @@ CULTURE = {
 
 # 资讯统一在 news.html 发布，按 cat 归类到 notice/policy/knowledge 等栏目
 NEWS = [
+    {"file": "news/n34.html", "cat": "知产课堂", "date": "2026-11-25",
+     "title": "东莞商标注册要准备哪些材料？莞促知产讲清清单与要求",
+     "cover": "assets/img/covers/cover-dongguan-material.jpg",
+     "desc": "在东莞办商标注册，材料没备齐容易来回补件。莞促知产讲清申请主体材料、商标图样、类别项目、委托材料与送达信息的准备要点，帮企业少走弯路。"},
+    {"file": "news/n35.html", "cat": "知产课堂", "date": "2026-11-25",
+     "title": "东莞商标注册该选哪些类别？莞促知产讲清类别选择思路",
+     "cover": "assets/img/covers/cover-dongguan-class.jpg",
+     "desc": "商标按类别保护，类别选少了保护不到位、选多了又浪费。莞促知产讲清如何以主营业务为核心，沿业务链条补充关联类别并为未来预留空间。"},
+    {"file": "news/n36.html", "cat": "知产课堂", "date": "2026-11-25",
+     "title": "东莞商标注册用个人还是公司名义？莞促知产讲清主体怎么选",
+     "cover": "assets/img/covers/cover-dongguan-subject.jpg",
+     "desc": "注册商标用个人还是公司名义，会影响权利归属与后续处置。莞促知产讲清两种申请主体的差异、材料要求与选择思路，帮企业让权属与实际经营一致。"},
     {"file": "news/n31.html", "cat": "政策速递", "date": "2026-11-25",
      "title": "莞促知产解读：专利和商标审查十五五规划，企业申请要更重质量",
      "cover": "assets/img/covers/cover-policy-review.jpg",
