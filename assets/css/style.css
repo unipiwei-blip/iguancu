@@ -217,9 +217,9 @@ img{max-width:100%;display:block}
 .item-card p{font-size:14px;color:var(--muted);line-height:1.85}
 .faq-list{display:grid;gap:14px}
 .faq-item{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:22px 24px;box-shadow:var(--shadow);margin-bottom:12px}
-.faq-q{font-size:17px;font-weight:700;color:var(--ink);margin-bottom:10px;display:flex;gap:12px}
+.faq-q{font-size:17px;font-weight:700;color:var(--ink);margin-bottom:10px;display:flex;gap:12px;padding-left:2em}
 .faq-q .qmark{color:var(--blue);font-weight:800}
-.faq-a{color:#33445f;line-height:1.9;font-size:15px;padding-left:26px}
+.faq-a{color:#33445f;line-height:1.9;font-size:15px;padding-left:26px;text-indent:2em}
 
 /* 文章 */
 .article-wrap{max-width:880px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:46px;box-shadow:var(--shadow)}

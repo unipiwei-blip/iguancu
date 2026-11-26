@@ -176,6 +176,10 @@ CULTURE = {
 
 # 资讯统一在 news.html 发布，按 cat 归类到 notice/policy/knowledge 等栏目
 NEWS = [
+    {"file": "news/n40.html", "cat": "知产课堂", "date": "2026-11-26",
+     "title": "创始王商标纷争怎么看？莞促知产分析历史称谓与商标权的边界",
+     "cover": "assets/img/covers/cover-chuangshiwang-trademark.jpg",
+     "desc": "从荣和烧房到创始王，一个酿酒家族的百年故事，把商标专用权与历史叙事权的边界摆到台前。莞促知产结合公开史料与生效判决，讲清这段商标纷争的来龙去脉，以及企业该如何守住品牌表达的边界。"},
     {"file": "news/n37.html", "cat": "知产课堂", "date": "2026-11-26",
      "title": "东莞专利申请需要准备哪些材料？莞促知产讲清清单与要点",
      "cover": "assets/img/covers/cover-dg-patent-material.jpg",
