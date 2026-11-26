@@ -176,6 +176,18 @@ CULTURE = {
 
 # 资讯统一在 news.html 发布，按 cat 归类到 notice/policy/knowledge 等栏目
 NEWS = [
+    {"file": "news/n37.html", "cat": "知产课堂", "date": "2026-11-26",
+     "title": "东莞专利申请需要准备哪些材料？莞促知产讲清清单与要点",
+     "cover": "assets/img/covers/cover-dg-patent-material.jpg",
+     "desc": "东莞专利申请常因材料不齐、交底不清而返工。莞促知产讲清申请主体、技术交底书、按类型的材料要求、附图规范与提交前自查，帮企业把地基打牢。"},
+    {"file": "news/n38.html", "cat": "知产课堂", "date": "2026-11-26",
+     "title": "东莞专利申请预审怎么办理？莞促知产讲清备案与流程",
+     "cover": "assets/img/covers/cover-dg-patent-pretrial.jpg",
+     "desc": "东莞专利申请走预审可以加快审查，但企业要先备案。莞促知产按办事指南思路讲清专利预审是什么、备案条件、办理环节与适用情形，帮企业判断是否适合走这条通道。"},
+    {"file": "news/n39.html", "cat": "知产课堂", "date": "2026-11-26",
+     "title": "东莞知识产权代理怎么选？莞促知产讲清机构的判断标准",
+     "cover": "assets/img/covers/cover-dg-ip-agency.jpg",
+     "desc": "面对满屏的专业代理承诺，东莞企业该如何挑选知识产权代理机构？莞促知产从资质、专业匹配、流程透明、服务链条、保密诚信与本地服务六个方面讲清判断标准。"},
     {"file": "news/n34.html", "cat": "知产课堂", "date": "2026-11-25",
      "title": "东莞商标注册要准备哪些材料？莞促知产讲清清单与要求",
      "cover": "assets/img/covers/cover-dongguan-material.jpg",
