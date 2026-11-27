@@ -176,6 +176,18 @@ CULTURE = {
 
 # 资讯统一在 news.html 发布，按 cat 归类到 notice/policy/knowledge 等栏目
 NEWS = [
+    {"file": "news/n44.html", "cat": "知产课堂", "date": "2026-11-27",
+     "title": "商标续展怎么办理？莞促知产讲清期限与办理流程",
+     "cover": "assets/img/covers/cover-trademark-renewal.jpg",
+     "desc": "商标到期不是自动延续。莞促知产讲清商标续展的办理顺序、材料准备、类别核对与常见退回原因，帮企业把已经建立的品牌资产稳稳续下去。"},
+    {"file": "news/n45.html", "cat": "知产课堂", "date": "2026-11-27",
+     "title": "专利被侵权怎么办？莞促知产讲清维权路径与证据要点",
+     "cover": "assets/img/covers/cover-patent-infringement.jpg",
+     "desc": "发现别人在生产或销售采用自己专利技术的产品，企业该如何开始？莞促知产按流程讲清权利核查、侵权比对、证据固定与维权路径选择。"},
+    {"file": "news/n46.html", "cat": "知产课堂", "date": "2026-11-27",
+     "title": "外观专利申请要准备哪些图片？莞促知产讲清材料要求",
+     "cover": "assets/img/covers/cover-design-patent.jpg",
+     "desc": "外观专利保护的是产品外形，图片质量直接决定保护范围是否清楚。莞促知产讲清视图要求、拍摄规范、设计要点说明与提交前自查。"},
     {"file": "news/n41.html", "cat": "知产课堂", "date": "2026-11-27",
      "title": "发现商标被侵权怎么办？莞促知产讲清维权路径与证据准备",
      "cover": "assets/img/covers/cover-trademark-infringement.jpg",
