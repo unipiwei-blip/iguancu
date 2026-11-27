@@ -176,6 +176,18 @@ CULTURE = {
 
 # 资讯统一在 news.html 发布，按 cat 归类到 notice/policy/knowledge 等栏目
 NEWS = [
+    {"file": "news/n41.html", "cat": "知产课堂", "date": "2026-11-27",
+     "title": "发现商标被侵权怎么办？莞促知产讲清维权路径与证据准备",
+     "cover": "assets/img/covers/cover-trademark-infringement.jpg",
+     "desc": "发现自己的商标被仿冒、被搭便车，很多企业不知道从哪一步开始。莞促知产从线索核查、证据固定、维权路径选择到行政投诉与诉讼衔接，讲清商标维权的完整思路。"},
+    {"file": "news/n42.html", "cat": "知产课堂", "date": "2026-11-27",
+     "title": "软件著作权登记怎么办？莞促知产讲清材料与办理流程",
+     "cover": "assets/img/covers/cover-software-copyright.jpg",
+     "desc": "软件著作权登记是科技企业最常遇到的版权确权事项。莞促知产讲清登记要准备的材料、办理环节、源代码与文档的注意事项，帮企业把权利凭证做扎实。"},
+    {"file": "news/n43.html", "cat": "知产课堂", "date": "2026-11-27",
+     "title": "东莞企业出海怎么注册海外商标？莞促知产讲清路径与选择",
+     "cover": "assets/img/covers/cover-overseas-trademark.jpg",
+     "desc": "产品卖到海外，商标却只注册在国内，是东莞企业出海常见风险。莞促知产讲清海外商标的几种注册路径、目标市场选择思路与前期准备要点，帮企业先把品牌立住。"},
     {"file": "news/n40.html", "cat": "知产课堂", "date": "2026-11-26",
      "title": "创始王商标纷争怎么看？莞促知产分析历史称谓与商标权的边界",
      "cover": "assets/img/covers/cover-chuangshiwang-trademark.jpg",
